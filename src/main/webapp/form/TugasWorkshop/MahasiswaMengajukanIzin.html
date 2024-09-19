@@ -1,0 +1,58 @@
+<form action="">
+    <h1>Form Absensi</h1>
+
+    <div class="form-group">
+        <p for="">Jenis Izin</p>
+        <select cam-variable-name="category"
+                cam-variable-type="String" class="form-control">
+            <option>Keperluan Pribadi</option>
+            <option>Sakit</option>
+            <option>Lainnya</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <p for="">Tanggal Izan</p>
+        <p class="input-group">
+            <input type="text"
+                   cam-variable-name="purchaseDate"
+                   cam-variable-type="Date"
+                   class="form-control"
+                   uib-datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+                   is-open="dateFieldOpened" />
+
+            <span class="input-group-btn">
+                <button type="button"
+                        class="btn btn-default"
+                        ng-click="open($event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </p>
+    </div>
+
+    <div class="form-group">
+        <p for="">Deskripsi</p>
+        <textarea
+                cam-variable-name="description"
+                cam-variable-type="String"
+                class="form-control"
+                label="Keperluan <></>unjangan Kesehatan"
+                required
+        ></textarea>
+    </div>
+
+    <div class="mb-5">
+        <label for="evidence" class="form-label">Bukti Pendukung</label>
+        <input type="file" cam-variable-name="evidence" cam-variable-type="File" cam-max-filesize="10000000" id="evidence">
+    </div>
+
+    <script cam-script type="text/form-script">
+        $scope.open = function($event) {
+          $event.preventDefault();
+          $event.stopPropagation();
+
+          $scope.dateFieldOpened = true;
+        };
+    </script>
+</form>
